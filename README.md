@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Capstone 2 Proposal 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proposal for my second capstone project 
 
-## Available Scripts
+## Tech Stack 
 
-In the project directory, you can run:
+React and Node.
 
-### `yarn start`
+## Project Focus
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Front-end UI.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Type 
 
-### `yarn test`
+Website. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Goal 
 
-### `yarn build`
+Filter, search or favorite animals a user is interested in adopting. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Type 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+All demographics. Anyone looking to adopt a pet. Ages 25-55
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Data type 
 
-### `yarn eject`
+Use the Petfinder API to get access to an array of pets available for adoption. Data would also include individual info about the pet (name, breed, color, gender, age) & location of where the adoption agency is. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Approach 
+In brief, outline your approach to creating your project (knowing that you may not
+know everything in advance and that these details might change later). Answer
+questions like the ones below, but feel free to add more information:
+a. What does your database schema look like?
+            Animal ID
+        	breed
+        	sex
+        	size
+        	environment
+        	location
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            Agency ID 
+            address
+            phone 
+            Animal ID
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+b. What kinds of issues might you run into with your API?
+    Favoriting pets that a user can go back and veiw later. (Had an issue doing this with my last capstone project)
+c. Is there any sensitive information you need to secure?
+    Username and password info 
+d. What functionality will your app include?
+    Search, filter, pet and adoption agency info. 
+e. What will the user flow look like?
+    Register or log in, see list of pets available, search by pet type, age, gender & adoption agency.  
+f. What features make your site more than a CRUD app? What are your
+stretch goals?
+    Being able to use GPS to find an adoption agency near a user. 
