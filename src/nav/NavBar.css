@@ -1,0 +1,9 @@
+.nav-container {
+  border-bottom: 2px solid lightgray;
+  padding: 0.5rem 1rem;
+  justify-content: space-between !important;
+}
+
+.nav-links {
+  display: inline-flex;
+}

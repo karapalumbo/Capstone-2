@@ -1,17 +1,18 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-// import PetList from "../pets/PetList";
+import PetList from "../pets/PetList";
 // import FavoritesList from "../users/Favorites"
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
 import PrivateRoute from "./PrivateRoute";
+import Homepage from "../Homepage";
 
 function Routes({ login, signup }) {
   return (
     <Switch>
-      {/* <Route exact path="/">
+      <Route exact path="/">
         <Homepage />
-      </Route> */}
+      </Route>
 
       <Route exact path="/signup">
         <SignupForm signup={signup} />
@@ -20,14 +21,14 @@ function Routes({ login, signup }) {
       <Route exact path="/login">
         <LoginForm login={login} />
       </Route>
-      {/* 
+
       <PrivateRoute exact path="/pets">
         <PetList />
       </PrivateRoute>
 
-      <PrivateRoute exact path="/favorites">
+      {/* <PrivateRoute exact path="/favorites">
         <FavoritesList />
-      </PrivateRoute> */}
+      </PrivateRoute>  */}
 
       <Redirect to="/" />
     </Switch>

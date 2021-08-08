@@ -13,11 +13,11 @@ const SignupForm = ({ signup }) => {
   async function handleSubmit(e) {
     e.preventDefault();
     let res = await signup(formData);
-    // if (res.success) {
-    //   history.push("/companies");
-    // } else {
-    //   throw new Error("Error signing up.");
-    // }
+    if (res.success) {
+      history.push("/users");
+    } else {
+      throw new Error("Error signing up.");
+    }
   }
 
   function handleChange(e) {
@@ -41,6 +41,7 @@ const SignupForm = ({ signup }) => {
           onChange={handleChange}
         />
       </FormGroup>
+
       <FormGroup>
         <Label for="=password">Password</Label>
         <Input

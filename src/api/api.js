@@ -10,7 +10,7 @@ class PetfinderApi {
     console.debug("API Call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${API_TOKEN}` };
+    const headers = { Authorization: `Bearer ${PetfinderApi.token}` };
     const params = method === "get" ? data : {};
 
     try {
@@ -30,16 +30,16 @@ class PetfinderApi {
     return res.user;
   }
 
-  /** Apply to job */
-  static async applyToJob(username, id) {
-    await this.request(`users/${username}/jobs/${id}`, {}, "post");
-  }
+  // /** Apply to job */
+  // static async applyToJob(username, id) {
+  //   await this.request(`users/${username}/jobs/${id}`, {}, "post");
+  // }
 
-  /** Get jobs */
-  static async getJobs(title) {
-    let res = await this.request("jobs", { title });
-    return res.jobs;
-  }
+  // /** Get pets */
+  // static async getPets() {
+  //   let res = await this.request("pets");
+  //   return res.pets;
+  // }
 
   /** User signup */
   static async signup(data) {

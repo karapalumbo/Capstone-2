@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import UserContext from "../UserContext";
 import { NavLink, Navbar, NavbarBrand } from "reactstrap";
 import { Link } from "react-router-dom";
-// import "./NavBar.css";
+import "./NavBar.css";
 
 function NavBar({ logout }) {
   const { currentUser } = useContext(UserContext);
@@ -14,8 +14,7 @@ function NavBar({ logout }) {
         {currentUser ? (
           <>
             <NavLink href="/companies">Pets</NavLink>
-            <NavLink href="/jobs">Favorites</NavLink>
-            <NavLink href="/profile">Profile</NavLink>
+            <NavLink href="/jobs">{currentUser}'s Favorites</NavLink>
             <Link className="nav-link" to="/" onClick={logout}>
               Logout {currentUser.username}
             </Link>

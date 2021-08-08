@@ -3,16 +3,19 @@ import NavBar from "./nav/NavBar";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes/Routes";
 import PetfinderApi from "./api/api";
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import useLocalStorage from "./localStorage";
 import { Container } from "reactstrap";
 import { API_KEY, API_TOKEN, API_SECRET } from "./secret";
+import Homepage from "./Homepage";
 
 import "./App.css";
 
+export const TOKEN_ID = "token";
+
 function App() {
-  const [token, setToken] = useLocalStorage(API_TOKEN);
+  const [token, setToken] = useLocalStorage(TOKEN_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [favoriteID, setFavoriteID] = useState(new Set([]));
@@ -24,7 +27,7 @@ function App() {
   //       PetfinderApi.token = token;
   //       let currUser = await PetfinderApi.getUser(username);
   //       setCurrentUser(currUser);
-  //       setAppliedID(new Set(currUser.applications));
+  //       setFavoriteID(new Set(currUser.favoriteID));
   //     }
   //     setIsLoaded(true);
   //   }
@@ -49,25 +52,22 @@ function App() {
     setToken(null);
   }
 
-  // function hasApplied(id) {
-  //   return appliedID.has(id);
+  // function hasFavorited(pet_id) {
+  //   return favoriteID.has(id);
   // }
 
-  // function applyToJob(id) {
-  //   if (hasApplied(id)) return;
-  //   PetfinderApi.applyToJob(currentUser.username, id);
-  //   setAppliedID(new Set([...appliedID, id]));
+  // function favoritePet(pet_id) {
+  //   if (hasFavorited(pet_id)) return;
+  //   PetfinderApi.favoritePet(currentUser.username, pet_id);
+  //   setFavoriteID(new Set([...favoriteID, id]));
   // }
 
-  if (!isLoaded) {
-    return <div>Loading...</div>;
-  }
+  // if (!isLoaded) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="App">
-      <h1>Petfinder</h1>
-      <h3>Helping you find your forever friend.</h3>
-
       <BrowserRouter>
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <NavBar logout={logout} />
