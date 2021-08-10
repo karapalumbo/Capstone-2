@@ -9,11 +9,11 @@ function Homepage() {
   return (
     <div className="homepage">
       <h1>Petfinder</h1>
-      <h3>Helping you find your forever friend.</h3>
       {currentUser ? (
-        <h2>Welcome back, {currentUser.firstName || currentUser.username}!</h2>
+        <h2>Welcome back, {currentUser}!</h2>
       ) : (
         <>
+          <h3>Helping you find your forever friend.</h3>
           <div>
             <Link to="/login">Login</Link>
           </div>

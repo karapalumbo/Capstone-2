@@ -35,9 +35,15 @@ class PetfinderApi {
   // }
 
   /** Get pets */
-  static async getPets() {
-    let res = await this.request("pets");
+  static async getPets(searchTerm) {
+    let res = await this.request("pets", { searchTerm });
     return res.pets;
+  }
+
+  /** Get details on a pet by pet id */
+  static async getPet(id) {
+    let res = await this.request(`pets/${id}`);
+    return res.pet;
   }
 
   /** User signup */
@@ -50,6 +56,12 @@ class PetfinderApi {
   static async login(data) {
     let res = await this.request(`auth/token`, data, "post");
     return res.token;
+  }
+
+  /** Save user profile updates */
+  static async saveProfile(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
   }
 }
 

@@ -22,8 +22,6 @@ function PetCard({
   //   [id, favoritedPet]
   // );
 
-  // name, species, age, gender, color, description, photo
-
   const handleFavorited = async () => {
     if (favoritedPet(id)) return;
     hasFavorited(id);
@@ -45,7 +43,7 @@ function PetCard({
             <p>Color: {color}</p>
           </div>
         )}
-        {gender !== undefined && (
+        {gender && (
           <div>
             <p>Gender: {gender}</p>
           </div>

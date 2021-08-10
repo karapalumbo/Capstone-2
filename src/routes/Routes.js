@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PetList from "../pets/PetList";
+import PetDetails from "../pets/PetDetails";
 // import FavoritesList from "../users/Favorites"
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
@@ -20,6 +21,10 @@ function Routes({ login, signup }) {
 
       <Route exact path="/login">
         <LoginForm login={login} />
+      </Route>
+
+      <Route exact path="/pets/:id">
+        <PetDetails />
       </Route>
 
       <Route exact path="/pets">
