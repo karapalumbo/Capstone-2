@@ -15,12 +15,12 @@ function PetCard({
   const { favoritedPet, hasFavorited } = useContext(UserContext);
   const [favorited, setFavorited] = useState();
 
-  React.useEffect(
-    function updateFavorited() {
-      setFavorited(favoritedPet(id));
-    },
-    [id, favoritedPet]
-  );
+  // React.useEffect(
+  //   function updateFavorited() {
+  //     setFavorited(favoritedPet(id));
+  //   },
+  //   [id, favoritedPet]
+  // );
 
   // name, species, age, gender, color, description, photo
 
@@ -41,9 +41,19 @@ function PetCard({
               <p>Age: {age}</p>
             </div>
           )}
+          {color && (
+            <div>
+              <p>Color: {color}</p>
+            </div>
+          )}
           {gender !== undefined && (
             <div>
               <p>Gender: {gender}</p>
+            </div>
+          )}
+          {description && (
+            <div>
+              <p>{description}</p>
             </div>
           )}
           <Button

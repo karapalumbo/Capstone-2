@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_KEY, API_TOKEN, API_SECRET } from "../secret";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -30,16 +29,17 @@ class PetfinderApi {
     return res.user;
   }
 
-  // /** Apply to job */
-  // static async applyToJob(username, id) {
-  //   await this.request(`users/${username}/jobs/${id}`, {}, "post");
-  // }
+  /** Favorite pet */
+  static async favoritePet(username, pet_id) {
+    await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
+  }
 
-  // /** Get pets */
-  // static async getPets() {
-  //   let res = await this.request("pets");
-  //   return res.pets;
-  // }
+  /** Get pets */
+  static async getPets() {
+    let res = await this.request("pets");
+    console.log(res);
+    return res.pets;
+  }
 
   /** User signup */
   static async signup(data) {

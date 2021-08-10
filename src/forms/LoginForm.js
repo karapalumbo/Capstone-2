@@ -13,7 +13,7 @@ const LoginForm = ({ login }) => {
     e.preventDefault();
     let res = await login(formData);
     if (res.success) {
-      history.push("/users");
+      history.push("/pets");
     } else {
       throw new Error("Error logging in.");
     }

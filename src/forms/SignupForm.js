@@ -14,7 +14,7 @@ const SignupForm = ({ signup }) => {
     e.preventDefault();
     let res = await signup(formData);
     if (res.success) {
-      history.push("/users");
+      history.push("/pets");
     } else {
       throw new Error("Error signing up.");
     }

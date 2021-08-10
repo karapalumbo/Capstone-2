@@ -22,9 +22,13 @@ function Routes({ login, signup }) {
         <LoginForm login={login} />
       </Route>
 
-      <PrivateRoute exact path="/pets">
+      <Route exact path="/pets">
         <PetList />
-      </PrivateRoute>
+      </Route>
+
+      {/* <PrivateRoute exact path="/pets">
+        <PetList />
+      </PrivateRoute> */}
 
       {/* <PrivateRoute exact path="/favorites">
         <FavoritesList />

@@ -7,8 +7,6 @@ import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import useLocalStorage from "./localStorage";
 import { Container } from "reactstrap";
-import { API_KEY, API_TOKEN, API_SECRET } from "./secret";
-import Homepage from "./Homepage";
 
 import "./App.css";
 
@@ -20,20 +18,20 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [favoriteID, setFavoriteID] = useState(new Set([]));
 
-  // useEffect(() => {
-  //   async function findCurrentUser() {
-  //     if (token) {
-  //       let { username } = jwt.decode(token);
-  //       PetfinderApi.token = token;
-  //       let currUser = await PetfinderApi.getUser(username);
-  //       setCurrentUser(currUser);
-  //       setFavoriteID(new Set(currUser.favoriteID));
-  //     }
-  //     setIsLoaded(true);
-  //   }
-  //   setIsLoaded(false);
-  //   findCurrentUser();
-  // }, [token]);
+  useEffect(() => {
+    async function findCurrentUser() {
+      if (token) {
+        let { username } = jwt.decode(token);
+        PetfinderApi.token = token;
+        let currUser = await PetfinderApi.getUser(username);
+        setCurrentUser(currUser.username);
+        setFavoriteID(new Set(currUser.favoriteID));
+      }
+      setIsLoaded(true);
+    }
+    setIsLoaded(false);
+    findCurrentUser();
+  }, [token]);
 
   async function signup(formData) {
     let token = await PetfinderApi.signup(formData);
@@ -53,13 +51,13 @@ function App() {
   }
 
   // function hasFavorited(pet_id) {
-  //   return favoriteID.has(id);
+  //   return favoriteID.has(pet_id);
   // }
 
-  // function favoritePet(pet_id) {
+  // function favoritedPet(pet_id) {
   //   if (hasFavorited(pet_id)) return;
   //   PetfinderApi.favoritePet(currentUser.username, pet_id);
-  //   setFavoriteID(new Set([...favoriteID, id]));
+  //   setFavoriteID(new Set([...favoriteID, pet_id]));
   // }
 
   // if (!isLoaded) {
@@ -69,7 +67,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider
+          value={{ currentUser, setCurrentUser }}
+          // hasFavorited, favoritedPet
+        >
           <NavBar logout={logout} />
           <Container>
             <Routes signup={signup} login={login} />
