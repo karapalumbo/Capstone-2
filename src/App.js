@@ -24,7 +24,7 @@ function App() {
         let { username } = jwt.decode(token);
         PetfinderApi.token = token;
         let currUser = await PetfinderApi.getUser(username);
-        setCurrentUser(currUser.username);
+        setCurrentUser(currUser);
         setFavoriteID(new Set(currUser.favoriteID));
       }
       setIsLoaded(true);

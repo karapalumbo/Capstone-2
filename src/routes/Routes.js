@@ -5,6 +5,7 @@ import PetDetails from "../pets/PetDetails";
 // import FavoritesList from "../users/Favorites"
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
+import ProfileForm from "../forms/ProfileForm";
 import PrivateRoute from "./PrivateRoute";
 import Homepage from "../Homepage";
 
@@ -29,6 +30,10 @@ function Routes({ login, signup }) {
 
       <Route exact path="/pets">
         <PetList />
+      </Route>
+
+      <Route exact path="/user/profile">
+        <ProfileForm />
       </Route>
 
       {/* <PrivateRoute exact path="/pets">

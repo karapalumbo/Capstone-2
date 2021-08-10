@@ -7,6 +7,8 @@ import PetfinderApi from "../api/api";
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
+  console.log(currentUser);
+
   const [formData, setFormData] = useState({
     username: currentUser.username,
     firstName: currentUser.firstName,
