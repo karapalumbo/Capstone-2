@@ -13,8 +13,8 @@ function NavBar({ logout }) {
       <div className="nav-links">
         {currentUser ? (
           <>
-            <NavLink href="/companies">Pets</NavLink>
-            <NavLink href="/jobs">{currentUser}'s Favorites</NavLink>
+            <NavLink href="/pets">Pets</NavLink>
+            <NavLink href="/user/favorites">{currentUser}'s Favorites</NavLink>
             <Link className="nav-link" to="/" onClick={logout}>
               Logout {currentUser.username}
             </Link>

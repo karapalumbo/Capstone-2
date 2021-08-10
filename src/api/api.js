@@ -30,14 +30,13 @@ class PetfinderApi {
   }
 
   /** Favorite pet */
-  static async favoritePet(username, pet_id) {
-    await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
-  }
+  // static async favoritePet(username, pet_id) {
+  //   await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
+  // }
 
   /** Get pets */
   static async getPets() {
     let res = await this.request("pets");
-    console.log(res);
     return res.pets;
   }
 

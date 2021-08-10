@@ -15,12 +15,12 @@ function PetCard({
   const { favoritedPet, hasFavorited } = useContext(UserContext);
   const [favorited, setFavorited] = useState();
 
-  React.useEffect(
-    function updateFavorited() {
-      setFavorited(favoritedPet(id));
-    },
-    [id, favoritedPet]
-  );
+  // React.useEffect(
+  //   function updateFavorited() {
+  //     setFavorited(favoritedPet(id));
+  //   },
+  //   [id, favoritedPet]
+  // );
 
   // name, species, age, gender, color, description, photo
 
@@ -31,42 +31,40 @@ function PetCard({
   };
 
   return (
-    <div className="PetCard">
-      <Card className="pet-card">
-        <div>
-          <h5>{name}</h5>
-          <p>{species}</p>
-          {age && (
-            <div>
-              <p>Age: {age}</p>
-            </div>
-          )}
-          {color && (
-            <div>
-              <p>Color: {color}</p>
-            </div>
-          )}
-          {gender !== undefined && (
-            <div>
-              <p>Gender: {gender}</p>
-            </div>
-          )}
-          {description && (
-            <div>
-              <p>{description}</p>
-            </div>
-          )}
-          <Button
-            disabled={favorited}
-            onClick={handleFavorited}
-            color="primary"
-            className="favorite-btn"
-          >
-            {favorited ? "Favorited" : "Favorite"}
-          </Button>
-        </div>
-      </Card>
-    </div>
+    <Card className="pet-card" key={id}>
+      <div>
+        <h5>{name}</h5>
+        <p>{species}</p>
+        {age && (
+          <div>
+            <p>Age: {age}</p>
+          </div>
+        )}
+        {color && (
+          <div>
+            <p>Color: {color}</p>
+          </div>
+        )}
+        {gender !== undefined && (
+          <div>
+            <p>Gender: {gender}</p>
+          </div>
+        )}
+        {description && (
+          <div>
+            <p>{description}</p>
+          </div>
+        )}
+        <Button
+          disabled={favorited}
+          onClick={handleFavorited}
+          color="primary"
+          className="favorite-btn"
+        >
+          {favorited ? "Favorited" : "Favorite"}
+        </Button>
+      </div>
+    </Card>
   );
 }
 
