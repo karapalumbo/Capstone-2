@@ -7,8 +7,6 @@ import PetfinderApi from "../api/api";
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
-  console.log(currentUser);
-
   const [formData, setFormData] = useState({
     username: currentUser.username,
     firstName: currentUser.firstName,
@@ -48,11 +46,10 @@ const ProfileForm = () => {
 
   return (
     <div>
-      <h2>Profile</h2>
+      <h2>{formData.username}'s Profile</h2>
       <Form>
         <FormGroup>
-          <Label for="username">Username</Label>
-          <p>{formData.username}</p>
+          <Label for="username">Update your profile below.</Label>
         </FormGroup>
         <FormGroup>
           <Label className="label" for="firstName">
