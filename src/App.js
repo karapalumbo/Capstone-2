@@ -50,25 +50,25 @@ function App() {
     setToken(null);
   }
 
-  // function hasFavorited(pet_id) {
-  //   return favoriteID.has(pet_id);
-  // }
+  function hasFavorited(pet_id) {
+    return favoriteID.has(pet_id);
+  }
 
-  // function favoritedPet(pet_id) {
-  //   if (hasFavorited(pet_id)) return;
-  //   PetfinderApi.favoritePet(currentUser.username, pet_id);
-  //   setFavoriteID(new Set([...favoriteID, pet_id]));
-  // }
+  function favoritedPet(pet_id) {
+    if (hasFavorited(pet_id)) return;
+    PetfinderApi.favoritePet(currentUser.username, pet_id);
+    setFavoriteID(new Set([...favoriteID, pet_id]));
+  }
 
-  // if (!isLoaded) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider
-          value={{ currentUser, setCurrentUser }}
+          value={{ currentUser, setCurrentUser, hasFavorited, favoritedPet }}
           // hasFavorited, favoritedPet
         >
           <NavBar logout={logout} />
