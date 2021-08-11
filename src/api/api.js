@@ -41,8 +41,8 @@ class PetfinderApi {
   }
 
   /** Get details on a pet by pet id */
-  static async getPet(id) {
-    let res = await this.request(`pets/${id}`);
+  static async getPet(pet_id) {
+    let res = await this.request(`pets/${pet_id}`);
     return res.pet;
   }
 

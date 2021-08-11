@@ -3,7 +3,7 @@ import { Card, Button } from "reactstrap";
 import UserContext from "../UserContext";
 
 function PetCard({
-  id,
+  pet_id,
   name,
   species,
   age,
@@ -23,45 +23,47 @@ function PetCard({
   // );
 
   const handleFavorited = async () => {
-    if (favoritedPet(id)) return;
-    hasFavorited(id);
+    if (favoritedPet(pet_id)) return;
+    hasFavorited(pet_id);
     setFavorited(true);
   };
 
   return (
-    <Card className="pet-card" key={id}>
-      <div>
-        <h5>{name}</h5>
-        <p>{species}</p>
-        {age && (
-          <div>
-            <p>Age: {age}</p>
-          </div>
-        )}
-        {color && (
-          <div>
-            <p>Color: {color}</p>
-          </div>
-        )}
-        {gender && (
-          <div>
-            <p>Gender: {gender}</p>
-          </div>
-        )}
-        {description && (
-          <div>
-            <p>{description}</p>
-          </div>
-        )}
-        <Button
-          disabled={favorited}
-          onClick={handleFavorited}
-          color="primary"
-          className="favorite-btn"
-        >
-          {favorited ? "Favorited" : "Favorite"}
-        </Button>
-      </div>
+    <Card className="pet-card">
+      <a href={`/pets/${pet_id}`}>
+        <div>
+          <h5>{name}</h5>
+          <p>{species}</p>
+          {age && (
+            <div>
+              <p>Age: {age}</p>
+            </div>
+          )}
+          {color && (
+            <div>
+              <p>Color: {color}</p>
+            </div>
+          )}
+          {gender && (
+            <div>
+              <p>Gender: {gender}</p>
+            </div>
+          )}
+          {description && (
+            <div>
+              <p>{description}</p>
+            </div>
+          )}
+          <Button
+            disabled={favorited}
+            onClick={handleFavorited}
+            color="primary"
+            className="favorite-btn"
+          >
+            {favorited ? "Favorited" : "Favorite"}
+          </Button>
+        </div>
+      </a>
     </Card>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PetfinderApi from "../api/api";
 import SearchForm from "../forms/SearchForm";
-import PetDetails from "./PetDetails";
 import PetCard from "./PetCard";
 
 function PetList() {
@@ -9,7 +8,6 @@ function PetList() {
 
   const petInfo = async (searchTerm) => {
     const p = await PetfinderApi.getPets(searchTerm);
-    console.log(p);
     setPets(p);
   };
 
@@ -28,8 +26,8 @@ function PetList() {
           {pets.map((p) => {
             return (
               <PetCard
-                key={p.id}
-                id={p.id}
+                key={p.pet_id}
+                pet_id={p.pet_id}
                 name={p.name}
                 species={p.species}
                 age={p.age}

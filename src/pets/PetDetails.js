@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PetfinderApi from "../api/api";
-import PetCard from "./PetCard";
 
-function PetDetail({ pets }) {
-  const { id } = useParams();
+function PetDetails() {
+  const { pet_id } = useParams();
   const [pet, setPet] = useState(null);
 
-  const petInfo = async (id) => {
-    const p = await PetfinderApi.getPet(id);
+  const petInfo = async () => {
+    const p = await PetfinderApi.getPet(pet_id);
     setPet(p);
   };
 
   useEffect(() => {
     petInfo();
-  }, [id]);
+  }, [pet_id]);
 
   if (!pet) return <div>Loading...</div>;
 
@@ -25,4 +24,4 @@ function PetDetail({ pets }) {
   );
 }
 
-export default PetDetail;
+export default PetDetails;
