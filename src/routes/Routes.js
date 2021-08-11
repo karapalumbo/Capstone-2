@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PetList from "../pets/PetList";
 import PetDetails from "../pets/PetDetails";
-// import FavoritesList from "../users/Favorites"
+import FavoritesList from "../favorites/FavoritesList";
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
 import ProfileForm from "../forms/ProfileForm";
@@ -36,13 +36,17 @@ function Routes({ login, signup }) {
         <ProfileForm />
       </Route>
 
+      <Route exact path="/user/favorites">
+        <FavoritesList />
+      </Route>
+
       {/* <PrivateRoute exact path="/pets">
         <PetList />
       </PrivateRoute> */}
 
       {/* <PrivateRoute exact path="/favorites">
         <FavoritesList />
-      </PrivateRoute>  */}
+      </PrivateRoute> */}
 
       <Redirect to="/" />
     </Switch>

@@ -23,9 +23,9 @@ function App() {
       if (token) {
         let { username } = jwt.decode(token);
         PetfinderApi.token = token;
-        let currUser = await PetfinderApi.getUser(username);
-        setCurrentUser(currUser);
-        setFavoriteID(new Set(currUser.favoriteID));
+        let currentUser = await PetfinderApi.getUser(username);
+        setCurrentUser(currentUser);
+        setFavoriteID(new Set(currentUser.favorites));
       }
       setIsLoaded(true);
     }
@@ -50,15 +50,16 @@ function App() {
     setToken(null);
   }
 
-  // function hasFavorited(pet_id) {
-  //   return favoriteID.has(pet_id);
-  // }
+  function hasFavorited(pet_id) {
+    return favoriteID.has(pet_id);
+  }
 
-  // function favoritedPet(pet_id) {
-  //   if (hasFavorited(pet_id)) return;
-  //   PetfinderApi.favoritePet(currentUser.username, pet_id);
-  //   setFavoriteID(new Set([...favoriteID, pet_id]));
-  // }
+  function favoritePet(pet_id) {
+    console.warn(pet_id);
+    if (hasFavorited(pet_id)) return;
+    PetfinderApi.favoritePet(currentUser.username, pet_id);
+    setFavoriteID(new Set([...favoriteID, pet_id]));
+  }
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -67,8 +68,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-          {/* hasFavorited, favoritedPet */}
+        <UserContext.Provider
+          value={{ currentUser, setCurrentUser, hasFavorited, favoritePet }}
+        >
           <NavBar logout={logout} />
           <Container>
             <Routes signup={signup} login={login} />

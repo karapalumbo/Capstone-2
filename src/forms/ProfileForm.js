@@ -25,7 +25,7 @@ const ProfileForm = () => {
       email: formData.email,
     };
 
-    let updatedInfo = await PetfinderApi.saveProfile(
+    let updatedInfo = await PetfinderApi.updateProfile(
       formData.username,
       userInfo
     );

@@ -29,10 +29,11 @@ class PetfinderApi {
     return res.user;
   }
 
-  /** Favorite pet */
-  // static async favoritePet(username, pet_id) {
-  //   await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
-  // }
+  /** Save user profile updates */
+  static async updateProfile(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
+  }
 
   /** Get pets */
   static async getPets(searchTerm) {
@@ -46,6 +47,11 @@ class PetfinderApi {
     return res.pet;
   }
 
+  /** Favorite a pet */
+  static async favoritePet(username, pet_id) {
+    await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
+  }
+
   /** User signup */
   static async signup(data) {
     let res = await this.request(`auth/register`, data, "post");
@@ -56,12 +62,6 @@ class PetfinderApi {
   static async login(data) {
     let res = await this.request(`auth/token`, data, "post");
     return res.token;
-  }
-
-  /** Save user profile updates */
-  static async saveProfile(username, data) {
-    let res = await this.request(`users/${username}`, data, "patch");
-    return res.user;
   }
 }
 

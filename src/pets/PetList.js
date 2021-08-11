@@ -4,16 +4,16 @@ import SearchForm from "../forms/SearchForm";
 import PetCard from "./PetCard";
 
 function PetList() {
-  const [pets, setPets] = useState([]);
-
-  const petInfo = async (searchTerm) => {
-    const p = await PetfinderApi.getPets(searchTerm);
-    setPets(p);
-  };
+  const [pets, setPets] = useState(null);
 
   useEffect(() => {
     petInfo();
   }, []);
+
+  const petInfo = async (name) => {
+    const p = await PetfinderApi.getPets(name);
+    setPets(p);
+  };
 
   if (!pets) return <div>Loading...</div>;
 
