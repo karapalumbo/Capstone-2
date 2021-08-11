@@ -19,7 +19,19 @@ function PetDetails() {
 
   return (
     <div>
-      <h3>{pet.name}</h3>
+      <h3>Get to know {pet.name}</h3>
+      <div>
+        {pet.gender && (
+          <div>
+            <p>Gender: {pet.gender}</p>
+          </div>
+        )}
+        {pet.description && (
+          <div>
+            <p>{pet.description}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

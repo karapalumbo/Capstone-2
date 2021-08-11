@@ -2,16 +2,7 @@ import React, { useContext, useState } from "react";
 import { Card, Button } from "reactstrap";
 import UserContext from "../UserContext";
 
-function PetCard({
-  pet_id,
-  name,
-  species,
-  age,
-  gender,
-  color,
-  description,
-  photo,
-}) {
+function PetCard({ pet_id, name, species, age, color, photo }) {
   const { favoritedPet, hasFavorited } = useContext(UserContext);
   const [favorited, setFavorited] = useState();
 
@@ -33,13 +24,15 @@ function PetCard({
       <a href={`/pets/${pet_id}`}>
         <div>
           <h5>{name}</h5>
-          <p>{species}</p>
+          <p>
+            {color} colored {species}
+          </p>
           {age && (
             <div>
               <p>Age: {age}</p>
             </div>
           )}
-          {color && (
+          {/* {color && (
             <div>
               <p>Color: {color}</p>
             </div>
@@ -53,7 +46,7 @@ function PetCard({
             <div>
               <p>{description}</p>
             </div>
-          )}
+          )} */}
           <Button
             disabled={favorited}
             onClick={handleFavorited}
