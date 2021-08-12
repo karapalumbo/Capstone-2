@@ -51,7 +51,7 @@ const LoginForm = ({ login }) => {
           onChange={handleChange}
         />
       </FormGroup>
-      <Button>Login</Button>
+      <Button onSubmit={handleSubmit}>Login</Button>
     </Form>
   );
 };

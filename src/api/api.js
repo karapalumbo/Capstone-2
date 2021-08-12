@@ -6,8 +6,6 @@ class PetfinderApi {
   static token;
 
   static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
-
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${PetfinderApi.token}` };
     const params = method === "get" ? data : {};
@@ -36,8 +34,8 @@ class PetfinderApi {
   }
 
   /** Get pets */
-  static async getPets(searchTerm) {
-    let res = await this.request("pets", { searchTerm });
+  static async getPets(name) {
+    let res = await this.request("pets", { name });
     return res.pets;
   }
 
@@ -48,7 +46,8 @@ class PetfinderApi {
   }
 
   /** Favorite a pet */
-  static async favoritePet(username, pet_id) {
+  static async favoriteAPet(username, pet_id) {
+    console.warn("PETID", pet_id);
     await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
   }
 

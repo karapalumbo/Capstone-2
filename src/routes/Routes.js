@@ -40,14 +40,6 @@ function Routes({ login, signup }) {
         <FavoritesList />
       </Route>
 
-      {/* <PrivateRoute exact path="/pets">
-        <PetList />
-      </PrivateRoute> */}
-
-      {/* <PrivateRoute exact path="/favorites">
-        <FavoritesList />
-      </PrivateRoute> */}
-
       <Redirect to="/" />
     </Switch>
   );

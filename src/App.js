@@ -55,9 +55,8 @@ function App() {
   }
 
   function favoritePet(pet_id) {
-    console.warn(pet_id);
     if (hasFavorited(pet_id)) return;
-    PetfinderApi.favoritePet(currentUser.username, pet_id);
+    PetfinderApi.favoriteAPet(currentUser.username, pet_id);
     setFavoriteID(new Set([...favoriteID, pet_id]));
   }
 

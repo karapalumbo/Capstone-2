@@ -14,7 +14,7 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
     [pet_id, hasFavorited]
   );
 
-  const handleFavorited = async (e) => {
+  const handleFavorited = async () => {
     if (hasFavorited(pet_id)) return;
     favoritePet(pet_id);
     setFavorited(true);
@@ -22,6 +22,7 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
 
   return (
     <Card className="pet-card">
+      {favorited}
       <div>
         <h5>{name}</h5>
         <p>

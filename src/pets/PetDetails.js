@@ -13,7 +13,7 @@ function PetDetails() {
 
   useEffect(() => {
     petInfo();
-  }, [pet_id]);
+  });
 
   if (!pet) return <div>Loading...</div>;
 
