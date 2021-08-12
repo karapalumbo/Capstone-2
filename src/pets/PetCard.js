@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Card, Button } from "reactstrap";
+import { Card, Button, CardGroup } from "reactstrap";
 import UserContext from "../UserContext";
 import "./PetCard.css";
 
@@ -34,14 +34,16 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
           </div>
         )}
       </div>
-      <Button
-        color="primary"
-        className="favorite-btn"
-        onClick={handleFavorited}
-        disabled={favorited}
-      >
-        {favorited ? "Favorited" : "Favorite"}
-      </Button>
+      <span>
+        <Button
+          color="primary"
+          className="favorite-btn"
+          onClick={handleFavorited}
+          disabled={favorited}
+        >
+          {favorited ? "Favorited" : "Favorite"}
+        </Button>
+      </span>
       <a href={`/pets/${pet_id}`}>Learn about {name}</a>
     </Card>
   );

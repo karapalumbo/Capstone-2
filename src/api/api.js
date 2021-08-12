@@ -47,7 +47,6 @@ class PetfinderApi {
 
   /** Favorite a pet */
   static async favoriteAPet(username, pet_id) {
-    console.warn("PETID", pet_id);
     await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
   }
 
