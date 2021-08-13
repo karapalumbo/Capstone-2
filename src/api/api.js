@@ -50,6 +50,11 @@ class PetfinderApi {
     await this.request(`users/${username}/pets/${pet_id}`, {}, "post");
   }
 
+  /** Unfavorite a pet */
+  static async unfavoriteAPet(username, pet_id) {
+    await this.request(`users/${username}/pets/delete/${pet_id}`, {}, "delete");
+  }
+
   /** User signup */
   static async signup(data) {
     let res = await this.request(`auth/register`, data, "post");

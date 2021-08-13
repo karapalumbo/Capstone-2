@@ -55,9 +55,14 @@ function App() {
   }
 
   function favoritePet(pet_id) {
-    if (hasFavorited(pet_id)) return;
+    // if (hasFavorited(pet_id)) return;
     PetfinderApi.favoriteAPet(currentUser.username, pet_id);
     setFavoriteID(new Set([...favoriteID, pet_id]));
+  }
+
+  function unfavoritePet(pet_id) {
+    if (hasFavorited(pet_id))
+      return PetfinderApi.unfavoriteAPet(currentUser.username, pet_id);
   }
 
   if (!isLoaded) {
@@ -68,7 +73,13 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider
-          value={{ currentUser, setCurrentUser, hasFavorited, favoritePet }}
+          value={{
+            currentUser,
+            setCurrentUser,
+            hasFavorited,
+            favoritePet,
+            unfavoritePet,
+          }}
         >
           <NavBar logout={logout} />
           <Container>

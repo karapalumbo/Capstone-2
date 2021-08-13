@@ -4,8 +4,8 @@ import UserContext from "../UserContext";
 import "./PetCard.css";
 
 function PetCard({ pet_id, name, species, age, color, photo }) {
-  const { hasFavorited, favoritePet } = useContext(UserContext);
-  const [favorited, setFavorited] = useState();
+  const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
+  const [favorited, setFavorited] = useState(false);
 
   React.useEffect(
     function updateFavorited() {
@@ -15,14 +15,19 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
   );
 
   const handleFavorited = async () => {
-    if (hasFavorited(pet_id)) return;
-    favoritePet(pet_id);
-    setFavorited(true);
+    if (favorited) {
+      unfavoritePet(pet_id);
+      setFavorited(false);
+    } else {
+      setFavorited(true);
+      favoritePet(pet_id);
+    }
+
+    console.log(favorited);
   };
 
   return (
     <Card className="pet-card">
-      {favorited}
       <div>
         <h5>{name}</h5>
         <p>
@@ -39,7 +44,7 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
           color="primary"
           className="favorite-btn"
           onClick={handleFavorited}
-          disabled={favorited}
+          // disabled={favorited}
         >
           {favorited ? "Favorited" : "Favorite"}
         </Button>
