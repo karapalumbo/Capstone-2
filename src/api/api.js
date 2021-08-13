@@ -35,7 +35,7 @@ class PetfinderApi {
 
   /** Get pets */
   static async getPets(name) {
-    let res = await this.request("pets", { name });
+    let res = await this.request(`pets`, { name });
     return res.pets;
   }
 

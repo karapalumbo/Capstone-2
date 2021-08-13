@@ -6,14 +6,14 @@ import PetCard from "./PetCard";
 function PetList() {
   const [pets, setPets] = useState(null);
 
-  useEffect(() => {
-    petInfo();
-  }, []);
-
   const petInfo = async (name) => {
     const p = await PetfinderApi.getPets(name);
     setPets(p);
   };
+
+  useEffect(() => {
+    petInfo();
+  }, []);
 
   if (!pets) return <div>Loading...</div>;
 

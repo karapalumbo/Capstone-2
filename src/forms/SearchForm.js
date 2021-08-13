@@ -21,7 +21,6 @@ const SearchForm = ({ search }) => {
       <InputGroup className="search-form">
         <Input
           id="search"
-          type="text"
           name="search"
           placeholder="Enter search term"
           value={formData}

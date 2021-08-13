@@ -24,7 +24,7 @@ function FavoritesList() {
 
   return (
     <div>
-      <h1>{currentUser.username}'s favorites</h1>
+      <h1>{currentUser.username}'s Favorites</h1>
       {pets.map((p) => {
         return (
           <PetCard
