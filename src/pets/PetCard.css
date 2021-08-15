@@ -5,4 +5,19 @@
 img {
   width: 346px;
   height: 346px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.petcard {
+  margin: 20px;
+  border-radius: 20px 20px 0px 0px !important;
+}
+
+.petcard-body {
+  padding: 0px !important;
+}
+
+.petcard-info {
+  text-align: left;
+  padding: 20px;
 }

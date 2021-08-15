@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PetfinderApi from "../api/api";
 import SearchForm from "../forms/SearchForm";
 import PetCard from "./PetCard";
+import "./PetList.css";
 
 function PetList() {
   const [pets, setPets] = useState(null);
@@ -22,7 +23,7 @@ function PetList() {
       <SearchForm search={petInfo} />
 
       {pets.length ? (
-        <div>
+        <div className="petcard-container">
           {pets.map((p) => {
             return (
               <PetCard

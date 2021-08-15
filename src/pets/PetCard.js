@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Card, Button, CardGroup } from "reactstrap";
+import { Card, Button, CardBody } from "reactstrap";
 import UserContext from "../UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import "./PetCard.css";
 
 function PetCard({ pet_id, name, species, age, color, photos }) {
@@ -25,29 +28,30 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
   };
 
   return (
-    <Card className="pet-card">
-      <div>
-        <h5>{name}</h5>
-        <img src={photos} alt={species}></img>
-        <p>
-          {color} {species}
-        </p>
-        {age && (
+    <Card className="petcard">
+      <CardBody className="petcard-body">
+        <img src={photos} alt={species} />
+
+        <div className="petcard-info">
+          <h4>{name}</h4>
           <div>
-            <p>Age: {age}</p>
+            {color} {species}
           </div>
-        )}
-      </div>
-      <span>
-        <Button
-          color="primary"
-          className="favorite-btn"
-          onClick={handleFavorited}
-        >
-          {favorited ? "Favorited" : "Favorite"}
-        </Button>
-      </span>
-      <a href={`/pets/${pet_id}`}>Learn about {name}</a>
+          <div>{age}</div>
+        </div>
+
+        <span>
+          <Button
+            color="white"
+            className="favorite-btn"
+            onClick={handleFavorited}
+          >
+            <FontAwesomeIcon icon={favorited ? solidHeart : faHeart} />
+          </Button>
+        </span>
+
+        <a href={`/pets/${pet_id}`}>Learn about {name}</a>
+      </CardBody>
     </Card>
   );
 }
