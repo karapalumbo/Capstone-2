@@ -63,15 +63,12 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
         <Button className="pet-modal" onClick={handleModal}>
           Learn More!
         </Button>
+
         <PetModal
           modalOpen={isModalOpen}
           toggleModal={handleModal}
           pet_id={pet_id}
         />
-
-        {/* <a href={`/pets/${pet_id}`} className="pet-details-link">
-          Learn about {name}
-        </a> */}
       </CardBody>
     </Card>
   );

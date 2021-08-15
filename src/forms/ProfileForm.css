@@ -1,0 +1,27 @@
+.profile-form {
+  margin: 30px;
+  max-width: 50%;
+}
+
+.username-label {
+  margin-bottom: 50px;
+}
+
+.profile-btn {
+  margin-top: 20px;
+}
+
+.password-label {
+  margin-top: 50px;
+  float: left;
+}
+
+.label {
+  float: left;
+}
+
+#firstName,
+#lastName,
+#email {
+  margin-bottom: 20px;
+}

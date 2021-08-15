@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
-// import "./ProfileForm.css";
+import "./ProfileForm.css";
 
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -45,11 +45,13 @@ const ProfileForm = () => {
   }
 
   return (
-    <div>
+    <div className="profile-form">
       <h2>{formData.username}'s Profile</h2>
       <Form>
         <FormGroup>
-          <Label for="username">Update your profile below.</Label>
+          <Label for="username" className="username-label">
+            Update your profile below.
+          </Label>
         </FormGroup>
         <FormGroup>
           <Label className="label" for="firstName">
@@ -91,7 +93,7 @@ const ProfileForm = () => {
           />
         </FormGroup>
         <FormGroup>
-          <Label className="label" for="password">
+          <Label className="password-label" for="password">
             Confirm password to make changes:
           </Label>
           <Input

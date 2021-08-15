@@ -22,17 +22,6 @@ img {
   padding: 20px;
 }
 
-.pet-details-link {
-  background-color: darkslateblue;
-  color: white;
-  padding: 10px 35px;
-  text-align: center;
-  text-decoration: none;
+.pet-modal {
   margin-bottom: 10px;
-  display: inline-block;
-  border-radius: 10px;
-}
-
-.pet-details-link:hover {
-  color: black;
 }
