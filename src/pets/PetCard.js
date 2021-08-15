@@ -1,14 +1,17 @@
 import React, { useContext, useState } from "react";
-import { Card, Button, CardBody } from "reactstrap";
 import UserContext from "../UserContext";
+import { Card, Button, CardBody } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import "./PetCard.css";
 
+import PetModal from "./PetModal";
+
 function PetCard({ pet_id, name, species, age, color, photos }) {
   const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
   const [favorited, setFavorited] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   React.useEffect(
     function updateFavorited() {
@@ -27,30 +30,48 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
     }
   };
 
+  const handleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
   return (
     <Card className="petcard">
       <CardBody className="petcard-body">
         <img src={photos} alt={species} />
-
         <div className="petcard-info">
           <h4>{name}</h4>
+
+          <span>
+            <Button
+              color="white"
+              className="favorite-btn"
+              onClick={handleFavorited}
+            >
+              <FontAwesomeIcon
+                size="2x"
+                icon={favorited ? solidHeart : faHeart}
+              />
+            </Button>
+          </span>
+
           <div>
             {color} {species}
           </div>
           <div>{age}</div>
         </div>
 
-        <span>
-          <Button
-            color="white"
-            className="favorite-btn"
-            onClick={handleFavorited}
-          >
-            <FontAwesomeIcon icon={favorited ? solidHeart : faHeart} />
-          </Button>
-        </span>
+        <Button className="pet-modal" onClick={handleModal}>
+          Learn More!
+        </Button>
+        <PetModal
+          modalOpen={isModalOpen}
+          toggleModal={handleModal}
+          pet_id={pet_id}
+        />
 
-        <a href={`/pets/${pet_id}`}>Learn about {name}</a>
+        {/* <a href={`/pets/${pet_id}`} className="pet-details-link">
+          Learn about {name}
+        </a> */}
       </CardBody>
     </Card>
   );

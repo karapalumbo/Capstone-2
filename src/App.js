@@ -55,7 +55,6 @@ function App() {
   }
 
   function favoritePet(pet_id) {
-    // if (hasFavorited(pet_id)) return;
     PetfinderApi.favoriteAPet(currentUser.username, pet_id);
     setFavoriteID(new Set([...favoriteID, pet_id]));
   }

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
 import PetCard from "../pets/PetCard";
+import "./FavoriteList.css";
 
 function FavoritesList() {
   const { currentUser } = useContext(UserContext);
@@ -25,21 +26,28 @@ function FavoritesList() {
   return (
     <div>
       <h1>{currentUser.username}'s Favorites</h1>
-      {pets.map((p) => {
-        return (
-          <PetCard
-            key={p.pet_id}
-            pet_id={p.pet_id}
-            name={p.name}
-            species={p.species}
-            age={p.age}
-            gender={p.gender}
-            color={p.color}
-            description={p.description}
-            photo={p.photo}
-          />
-        );
-      })}
+
+      {currentUser.favorites.length ? (
+        <div className="petcard-container">
+          {pets.map((p) => {
+            return (
+              <PetCard
+                key={p.pet_id}
+                pet_id={p.pet_id}
+                name={p.name}
+                species={p.species}
+                age={p.age}
+                gender={p.gender}
+                color={p.color}
+                description={p.description}
+                photos={p.photos}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <p>No favorites yet.</p>
+      )}
     </div>
   );
 }

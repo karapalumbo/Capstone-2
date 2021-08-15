@@ -24,9 +24,9 @@ function Routes({ login, signup }) {
         <LoginForm login={login} />
       </Route>
 
-      <Route exact path="/pets/:pet_id">
+      {/* <Route exact path="/pets/:pet_id">
         <PetDetails />
-      </Route>
+      </Route> */}
 
       <Route exact path="/pets">
         <PetList />
