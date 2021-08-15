@@ -3,7 +3,7 @@ import { Card, Button, CardGroup } from "reactstrap";
 import UserContext from "../UserContext";
 import "./PetCard.css";
 
-function PetCard({ pet_id, name, species, age, color, photo }) {
+function PetCard({ pet_id, name, species, age, color, photos }) {
   const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
   const [favorited, setFavorited] = useState(false);
 
@@ -22,14 +22,13 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
       setFavorited(true);
       favoritePet(pet_id);
     }
-
-    console.log(favorited);
   };
 
   return (
     <Card className="pet-card">
       <div>
         <h5>{name}</h5>
+        <img src={photos} alt={species}></img>
         <p>
           {color} {species}
         </p>
@@ -44,7 +43,6 @@ function PetCard({ pet_id, name, species, age, color, photo }) {
           color="primary"
           className="favorite-btn"
           onClick={handleFavorited}
-          // disabled={favorited}
         >
           {favorited ? "Favorited" : "Favorite"}
         </Button>

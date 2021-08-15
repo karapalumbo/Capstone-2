@@ -34,7 +34,7 @@ function PetList() {
                 gender={p.gender}
                 color={p.color}
                 description={p.description}
-                photo={p.photo}
+                photos={p.photos}
               />
             );
           })}
