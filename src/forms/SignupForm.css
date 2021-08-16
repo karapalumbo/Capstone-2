@@ -1,0 +1,19 @@
+label {
+  float: left;
+}
+
+#firstName,
+#lastName,
+#email,
+#username,
+#password {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 30px !important;
+}
+
+input:focus {
+  outline: none;
+}

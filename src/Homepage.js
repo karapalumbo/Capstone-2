@@ -15,12 +15,13 @@ function Homepage() {
         <>
           <h3>Helping you find your forever friend.</h3>
           <div>
-            <Link to="/login">Login</Link>
+            <p>Please login or signup!</p>
+            {/* <Link to="/login">Login</Link> */}
           </div>
 
-          <div>
+          {/* <div>
             <Link to="/signup">Signup</Link>
-          </div>
+          </div> */}
         </>
       )}
     </div>

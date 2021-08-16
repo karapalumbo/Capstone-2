@@ -41,7 +41,7 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
         <div className="petcard-info">
           <h4>{name}</h4>
 
-          <span>
+          <span className="pet-favorite">
             <Button
               color="white"
               className="favorite-btn"
@@ -54,21 +54,20 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
             </Button>
           </span>
 
-          <div>
+          <div className="pet-details">
             {color} {species}
           </div>
-          <div>{age}</div>
+          <div className="pet-details">{age}</div>
+          <Button block className="pet-modal-btn" onClick={handleModal}>
+            Learn More!
+          </Button>
+
+          <PetModal
+            modalOpen={isModalOpen}
+            toggleModal={handleModal}
+            pet_id={pet_id}
+          />
         </div>
-
-        <Button className="pet-modal" onClick={handleModal}>
-          Learn More!
-        </Button>
-
-        <PetModal
-          modalOpen={isModalOpen}
-          toggleModal={handleModal}
-          pet_id={pet_id}
-        />
       </CardBody>
     </Card>
   );

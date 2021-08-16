@@ -29,6 +29,7 @@ const LoginForm = ({ login }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>Welcome back!</h2>
       <FormGroup>
         <Label for="username">Username</Label>
         <Input

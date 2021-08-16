@@ -1,10 +1,5 @@
-.profile-form {
-  margin: 30px;
-  max-width: 50%;
-}
-
 .username-label {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .profile-btn {
@@ -24,4 +19,15 @@
 #lastName,
 #email {
   margin-bottom: 20px;
+}
+
+form {
+  width: 550px;
+  height: 50px;
+  margin: auto;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 5px !important;
 }

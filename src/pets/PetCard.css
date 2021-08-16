@@ -1,5 +1,24 @@
 .favorite-btn {
-  float: right;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  outline: none !important;
+}
+
+.pet-modal-btn {
+  background-color: #e9d8fd !important;
+  width: 100%;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: none !important;
+  margin-top: 15px;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.pet-modal-btn:hover {
+  background-color: #b794f4 !important;
+  color: white !important;
 }
 
 img {
@@ -10,7 +29,9 @@ img {
 
 .petcard {
   margin: 20px;
-  border-radius: 20px 20px 0px 0px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 12px 0 rgba(78, 78, 78, 0.2),
+    0 6px 20px 0 rgba(75, 75, 75, 0.19);
 }
 
 .petcard-body {
@@ -19,7 +40,17 @@ img {
 
 .petcard-info {
   text-align: left;
-  padding: 20px;
+  padding: 28px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.petcard-info h4 {
+  font-weight: bold;
+}
+
+.pet-details {
+  color: slategray;
 }
 
 .pet-modal {

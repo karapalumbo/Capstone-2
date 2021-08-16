@@ -47,12 +47,8 @@ const ProfileForm = () => {
   return (
     <div className="profile-form">
       <h2>{formData.username}'s Profile</h2>
+      <p>Update your profile below.</p>
       <Form>
-        <FormGroup>
-          <Label for="username" className="username-label">
-            Update your profile below.
-          </Label>
-        </FormGroup>
         <FormGroup>
           <Label className="label" for="firstName">
             First Name

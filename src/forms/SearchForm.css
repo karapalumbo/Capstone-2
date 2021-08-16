@@ -1,0 +1,10 @@
+form {
+  width: 550px;
+  height: 30px;
+  margin: auto;
+  position: relative;
+}
+
+input:focus {
+  outline: none;
+}

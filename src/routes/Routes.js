@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PetList from "../pets/PetList";
-import PetDetails from "../pets/PetDetails";
 import FavoritesList from "../favorites/FavoritesList";
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";

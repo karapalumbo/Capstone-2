@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
+import "./SignupForm.css";
 
 const SignupForm = ({ signup }) => {
   const history = useHistory();
@@ -32,6 +33,7 @@ const SignupForm = ({ signup }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>Are you ready to meet your new best friend?!</h2>
       <FormGroup>
         <Label for="username">Username</Label>
         <Input

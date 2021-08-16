@@ -8,7 +8,7 @@ function NavBar({ logout }) {
   const { currentUser } = useContext(UserContext);
 
   return (
-    <Navbar className="nav-container" color="light" expand="md">
+    <Navbar className="nav-container" expand="md">
       <NavbarBrand href="/">Petfinder</NavbarBrand>
       <div className="nav-links">
         {currentUser ? (

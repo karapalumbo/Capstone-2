@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, InputGroup, Input, FormGroup, Col } from "reactstrap";
-// import "./SearchForm.css";
+import "./SearchForm.css";
 
 const SearchForm = ({ search }) => {
   const [formData, setFormData] = useState("");
