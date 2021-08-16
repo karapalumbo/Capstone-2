@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PetfinderApi from "../api/api";
 import SearchForm from "../forms/SearchForm";
 import PetCard from "./PetCard";
+import Loading from "../Loading";
 import "./PetList.css";
 
 function PetList() {
@@ -16,7 +17,7 @@ function PetList() {
     petInfo();
   }, []);
 
-  if (!pets) return <div>Loading...</div>;
+  if (!pets) return <Loading />;
 
   return (
     <div>

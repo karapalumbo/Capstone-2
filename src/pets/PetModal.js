@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PetfinderApi from "../api/api";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import Loading from "../Loading";
 
 const PetModal = (props) => {
   const { modalOpen, toggleModal, pet_id } = props;
@@ -16,7 +17,7 @@ const PetModal = (props) => {
     petInfo();
   });
 
-  if (!pet) return <div>Loading...</div>;
+  if (!pet) return <Loading />;
 
   return (
     <div>

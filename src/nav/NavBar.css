@@ -8,3 +8,7 @@
 .nav-links {
   display: inline-flex;
 }
+
+a {
+  color: black !important;
+}

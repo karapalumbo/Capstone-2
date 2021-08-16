@@ -56,3 +56,9 @@ img {
 .pet-modal {
   margin-bottom: 10px;
 }
+
+button.close {
+  border: none;
+  background-color: white;
+  font-size: x-large;
+}

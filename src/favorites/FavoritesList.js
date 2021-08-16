@@ -3,6 +3,7 @@ import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
 import PetCard from "../pets/PetCard";
 import "./FavoriteList.css";
+import Loading from "../Loading";
 
 function FavoritesList() {
   const { currentUser } = useContext(UserContext);
@@ -21,7 +22,7 @@ function FavoritesList() {
     petInfo();
   }, []);
 
-  if (!pets) return <div>Loading...</div>;
+  if (!pets) return <Loading />;
 
   return (
     <div>

@@ -23,21 +23,17 @@ function Routes({ login, signup }) {
         <LoginForm login={login} />
       </Route>
 
-      {/* <Route exact path="/pets/:pet_id">
-        <PetDetails />
-      </Route> */}
-
-      <Route exact path="/pets">
+      <PrivateRoute exact path="/pets">
         <PetList />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path="/user/profile">
+      <PrivateRoute exact path="/user/profile">
         <ProfileForm />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path="/user/favorites">
+      <PrivateRoute exact path="/user/favorites">
         <FavoritesList />
-      </Route>
+      </PrivateRoute>
 
       <Redirect to="/" />
     </Switch>
