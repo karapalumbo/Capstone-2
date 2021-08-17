@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import UserContext from "./UserContext";
-// import "./Homepage.css";
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);

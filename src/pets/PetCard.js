@@ -59,6 +59,7 @@ function PetCard({
               onClick={handleFavorited}
             >
               <FontAwesomeIcon
+                id={favorited ? "favorites" : "not-favorites"}
                 size="2x"
                 icon={favorited ? solidHeart : faHeart}
               />
