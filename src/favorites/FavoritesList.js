@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
 import PetCard from "../pets/PetCard";
-import "./FavoriteList.css";
+import "./FavoritesList.css";
 import Loading from "../Loading";
 
 function FavoritesList() {
