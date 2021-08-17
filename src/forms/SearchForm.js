@@ -22,7 +22,7 @@ const SearchForm = ({ search }) => {
         <Input
           id="search"
           name="search"
-          placeholder="Enter search term"
+          placeholder="Search by name"
           value={formData}
           onChange={handleChange}
         />

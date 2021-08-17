@@ -8,7 +8,16 @@ import "./PetCard.css";
 
 import PetModal from "./PetModal";
 
-function PetCard({ pet_id, name, species, age, color, photos }) {
+function PetCard({
+  pet_id,
+  name,
+  species,
+  age,
+  gender,
+  description,
+  color,
+  photos,
+}) {
   const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
 
   const [favorited, setFavorited] = useState(false);
@@ -70,6 +79,9 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
             modalOpen={isModalOpen}
             toggleModal={handleModal}
             pet_id={pet_id}
+            name={name}
+            gender={gender}
+            description={description}
           />
         </div>
       </CardBody>
