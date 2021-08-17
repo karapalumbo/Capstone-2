@@ -20,6 +20,10 @@
   color: white !important;
 }
 
+.pet-modal-btn:focus {
+  box-shadow: none !important;
+}
+
 img {
   width: 346px;
   height: 346px;

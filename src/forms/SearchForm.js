@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, InputGroup, Input, FormGroup, Col } from "reactstrap";
+import { Button, InputGroup, Input } from "reactstrap";
 import "./SearchForm.css";
 
 const SearchForm = ({ search }) => {

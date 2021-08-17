@@ -9,8 +9,7 @@ import "./PetCard.css";
 import PetModal from "./PetModal";
 
 function PetCard({ pet_id, name, species, age, color, photos }) {
-  const { hasFavorited, favoritePet, unfavoritePet, currentUser } =
-    useContext(UserContext);
+  const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
 
   const [favorited, setFavorited] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
