@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import UserContext from "./UserContext";
-import { Link } from "react-router-dom";
 // import "./Homepage.css";
 
 function Homepage() {
@@ -16,12 +15,7 @@ function Homepage() {
           <h3>Helping you find your forever friend.</h3>
           <div>
             <p>Please login or signup!</p>
-            {/* <Link to="/login">Login</Link> */}
           </div>
-
-          {/* <div>
-            <Link to="/signup">Signup</Link>
-          </div> */}
         </>
       )}
     </div>

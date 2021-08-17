@@ -20,7 +20,7 @@ function FavoritesList() {
 
   useEffect(() => {
     petInfo();
-  }, []);
+  });
 
   if (!pets) return <Loading />;
 

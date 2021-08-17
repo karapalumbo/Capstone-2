@@ -61,8 +61,8 @@ function App() {
   }
 
   function unfavoritePet(pet_id) {
-    if (hasFavorited(pet_id))
-      return PetfinderApi.unfavoriteAPet(currentUser.username, pet_id);
+    favoriteID.delete(pet_id);
+    return PetfinderApi.unfavoriteAPet(currentUser.username, pet_id);
   }
 
   if (!isLoaded) {

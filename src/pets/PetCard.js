@@ -9,7 +9,9 @@ import "./PetCard.css";
 import PetModal from "./PetModal";
 
 function PetCard({ pet_id, name, species, age, color, photos }) {
-  const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
+  const { hasFavorited, favoritePet, unfavoritePet, currentUser } =
+    useContext(UserContext);
+
   const [favorited, setFavorited] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -38,6 +40,7 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
     <Card className="petcard">
       <CardBody className="petcard-body">
         <img src={photos} alt={species} />
+
         <div className="petcard-info">
           <h4>{name}</h4>
 
@@ -57,7 +60,9 @@ function PetCard({ pet_id, name, species, age, color, photos }) {
           <div className="pet-details">
             {color} {species}
           </div>
+
           <div className="pet-details">{age}</div>
+
           <Button block className="pet-modal-btn" onClick={handleModal}>
             Learn More!
           </Button>
