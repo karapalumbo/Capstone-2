@@ -3,7 +3,6 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
 import Alert from "../Alert";
-import jwt from "jsonwebtoken";
 import "./ProfileForm.css";
 
 const ProfileForm = () => {
