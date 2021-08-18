@@ -5,18 +5,18 @@
 }
 
 .pet-modal-btn {
-  background-color: #e9d8fd !important;
+  background-color: #805ad5 !important;
   width: 100%;
   padding: 10px !important;
   border-radius: 5px !important;
   border: none !important;
   margin-top: 15px;
-  color: black !important;
+  color: white !important;
   font-weight: bold !important;
 }
 
 .pet-modal-btn:hover {
-  background-color: #b794f4 !important;
+  background-color: #553c9a !important;
   color: white !important;
 }
 

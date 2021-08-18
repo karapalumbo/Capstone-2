@@ -9,6 +9,7 @@ function PetList() {
   const [pets, setPets] = useState(null);
 
   const petInfo = async (name) => {
+    console.warn("value", name);
     const p = await PetfinderApi.getPets(name);
     setPets(p);
   };

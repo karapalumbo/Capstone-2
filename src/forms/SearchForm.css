@@ -8,3 +8,12 @@ form {
 input:focus {
   outline: none;
 }
+
+.search-btn {
+  font-weight: bold !important;
+  background-color: #805ad5 !important;
+}
+
+.search-btn:hover {
+  background-color: #553c9a !important;
+}

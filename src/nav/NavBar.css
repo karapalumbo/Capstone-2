@@ -7,8 +7,13 @@
 
 .nav-links {
   display: inline-flex;
+  font-weight: 600;
 }
 
 a {
   color: black !important;
+}
+
+.selected {
+  color: #805ad5 !important;
 }

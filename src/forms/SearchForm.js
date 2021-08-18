@@ -7,6 +7,7 @@ const SearchForm = ({ search }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     search(formData);
     setFormData(formData);
   };
@@ -26,7 +27,7 @@ const SearchForm = ({ search }) => {
           value={formData}
           onChange={handleChange}
         />
-        <Button>Search</Button>
+        <Button className="search-btn">Search</Button>
       </InputGroup>
     </form>
   );

@@ -2,10 +2,13 @@ import React, { useState, useContext } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import UserContext from "../UserContext";
 import PetfinderApi from "../api/api";
+import Alert from "../Alert";
+import jwt from "jsonwebtoken";
 import "./ProfileForm.css";
 
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [showAlert, setShowAlert] = useState(false);
 
   const [formData, setFormData] = useState({
     username: currentUser.username,
@@ -29,11 +32,13 @@ const ProfileForm = () => {
       formData.username,
       userInfo
     );
+
     setFormData((info) => ({
       ...info,
       password: "",
     }));
     setCurrentUser(updatedInfo);
+    setShowAlert(true);
   }
 
   function handleChange(e) {
@@ -48,6 +53,7 @@ const ProfileForm = () => {
     <div className="profile-form">
       <h2>{formData.username}'s Profile</h2>
       <p>Update your profile below.</p>
+
       <Form>
         <FormGroup>
           <Label className="label" for="firstName">
@@ -89,8 +95,8 @@ const ProfileForm = () => {
           />
         </FormGroup>
         <FormGroup>
-          <Label className="password-label" for="password">
-            Confirm password to make changes:
+          <Label className="label" for="password">
+            Password
           </Label>
           <Input
             type="password"
@@ -100,6 +106,12 @@ const ProfileForm = () => {
             onChange={handleChange}
           />
         </FormGroup>
+
+        <Alert
+          color="success"
+          msg="Your changes have been saved!"
+          isAlertOpen={showAlert}
+        />
 
         <Button className="profile-btn" onClick={handleSubmit}>
           Save Changes
