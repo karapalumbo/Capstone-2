@@ -10,7 +10,7 @@ function NavBar({ logout }) {
 
   return (
     <Navbar className="nav-container" expand="md">
-      <NavbarBrand href="/">Petfinder</NavbarBrand>
+      <NavbarBrand>Furriends</NavbarBrand>
       <div className="nav-links">
         {currentUser ? (
           <>

@@ -39,6 +39,12 @@ class PetfinderApi {
     return res.pets;
   }
 
+  // /** Get random pet */
+  // static async getRandomPet(limit) {
+  //   let res = await this.request("pets", { limit });
+  //   return res.pets;
+  // }
+
   /** Get details on a pet by pet id */
   static async getPet(pet_id) {
     let res = await this.request(`pets/${pet_id}`);

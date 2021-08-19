@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PetfinderApi from "../api/api";
-import SearchForm from "../forms/SearchForm";
+// import SearchForm from "../forms/SearchForm";
 import PetCard from "./PetCard";
 import { FormGroup, Label, Input } from "reactstrap";
 import Loading from "../Loading";
