@@ -4,6 +4,7 @@ import { Card, Button, CardBody } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import PetfinderApi from "../api/api";
 import "./PetCard.css";
 
 import PetModal from "./PetModal";
@@ -17,6 +18,7 @@ function PetCard({
   description,
   color,
   photos,
+  organizationID,
 }) {
   const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
 
@@ -29,6 +31,16 @@ function PetCard({
     },
     [pet_id, hasFavorited]
   );
+
+  const getPetOrgInfo = async () => {
+    const org = await PetfinderApi.getOrganization(organizationID);
+    // console.warn(org);
+    console.warn(org);
+  };
+
+  React.useEffect(async () => {
+    getPetOrgInfo();
+  });
 
   const handleFavorited = async () => {
     if (favorited) {

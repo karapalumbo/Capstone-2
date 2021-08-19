@@ -39,12 +39,6 @@ class PetfinderApi {
     return res.pets;
   }
 
-  // /** Get random pet */
-  // static async getRandomPet(limit) {
-  //   let res = await this.request("pets", { limit });
-  //   return res.pets;
-  // }
-
   /** Get details on a pet by pet id */
   static async getPet(pet_id) {
     let res = await this.request(`pets/${pet_id}`);
@@ -59,6 +53,12 @@ class PetfinderApi {
   /** Unfavorite a pet */
   static async unfavoriteAPet(username, pet_id) {
     await this.request(`users/${username}/pets/delete/${pet_id}`, {}, "delete");
+  }
+
+  /** Get details on a organization based on id */
+  static async getOrganization(orgID) {
+    let res = await this.request(`pets/organization/${orgID}`);
+    return res.org;
   }
 
   /** User signup */
