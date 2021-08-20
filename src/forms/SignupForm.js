@@ -93,7 +93,7 @@ const SignupForm = ({ signup }) => {
           onChange={handleChange}
         />
       </FormGroup>
-      <Button>Signup</Button>
+      <Button className="signup-btn">Signup</Button>
     </Form>
   );
 };

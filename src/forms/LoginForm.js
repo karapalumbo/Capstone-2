@@ -52,7 +52,9 @@ const LoginForm = ({ login }) => {
           onChange={handleChange}
         />
       </FormGroup>
-      <Button onSubmit={handleSubmit}>Login</Button>
+      <Button className="profile-btn" onSubmit={handleSubmit}>
+        Login
+      </Button>
     </Form>
   );
 };

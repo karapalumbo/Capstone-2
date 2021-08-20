@@ -3,6 +3,7 @@ import UserContext from "./UserContext";
 import PetList from "./pets/PetList";
 import PetfinderApi from "./api/api";
 import Loading from "./Loading";
+import { Button } from "reactstrap";
 import "./Homepage.css";
 
 function Homepage() {
@@ -38,20 +39,25 @@ function Homepage() {
         <PetList />
       ) : (
         <>
-          <h1>Welcome to Furriends!</h1>
-
-          <p>
-            An easy way to find your furrrever friend! We have plenty of friends
-            waiting to meet you!
-          </p>
-
-          <h4>Meet {pet.name}!</h4>
-          <h6>
-            <a href="/login">Login</a> or <a href="/signup">signup</a> to meet
-            the others!
-          </h6>
-          <img className="homepage-img" src={pet.photos}></img>
-          <div></div>
+          <div className="homepage-container">
+            <div className="text-container">
+              <h1 className="header-text">
+                An easy way to find your furrrever friend!
+              </h1>
+              <p className="sub-text">
+                We have plenty of friends waiting to meet you! Sign up to
+                favorite, browse, and adopt your new best friend!
+              </p>
+              <h6>
+                <Button className="home-btn">
+                  <a href="/signup">Signup</a> to meet the others!
+                </Button>
+              </h6>
+            </div>
+            <div>
+              <img className="homepage-img" src={pet.photos}></img>
+            </div>
+          </div>
         </>
       )}
     </div>

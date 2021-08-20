@@ -4,6 +4,7 @@ import PetfinderApi from "../api/api";
 import PetCard from "../pets/PetCard";
 import "./FavoritesList.css";
 import Loading from "../Loading";
+import emptyImg from "../images/empty-favorites.png";
 
 function FavoritesList() {
   const { currentUser } = useContext(UserContext);
@@ -47,7 +48,16 @@ function FavoritesList() {
           })}
         </div>
       ) : (
-        <p>No favorites yet.</p>
+        <div>
+          <p>
+            You currently have no favorites!{" "}
+            <a className="visit-pets" href="/pets">
+              {" "}
+              Visit some furriends!
+            </a>
+          </p>
+          <img className="empty-img" src={emptyImg} />
+        </div>
       )}
     </div>
   );

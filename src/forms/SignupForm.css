@@ -1,5 +1,6 @@
 label {
   float: left;
+  font-weight: bold;
 }
 
 #firstName,
@@ -12,8 +13,27 @@ label {
 
 h2 {
   margin-bottom: 30px !important;
+  color: #553c9a;
+  font-weight: bold;
+  text-align: left;
 }
 
 input:focus {
   outline: none;
+}
+
+.signup-btn {
+  background-color: #805ad5 !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: none !important;
+  margin-top: 15px;
+  color: white !important;
+  font-weight: bold !important;
+  width: 100%;
+}
+
+.signup-btn:hover {
+  background-color: #553c9a !important;
+  color: white !important;
 }

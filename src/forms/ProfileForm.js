@@ -50,10 +50,9 @@ const ProfileForm = () => {
 
   return (
     <div className="profile-form">
-      <h2>{formData.username}'s Profile</h2>
-      <p>Update your profile below.</p>
-
       <Form>
+        <h2>{formData.username}'s Profile</h2>
+        <p style={{ textAlign: "left" }}>Update your profile below.</p>
         <FormGroup>
           <Label className="label" for="firstName">
             First Name

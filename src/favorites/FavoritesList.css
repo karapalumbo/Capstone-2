@@ -4,3 +4,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.empty-img {
+  width: auto;
+}
+
+.visit-pets {
+  color: #805ad5 !important;
+}

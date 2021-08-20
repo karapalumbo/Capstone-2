@@ -3,7 +3,19 @@
 }
 
 .profile-btn {
-  margin-top: 20px;
+  background-color: #805ad5 !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: none !important;
+  margin-top: 15px;
+  color: white !important;
+  font-weight: bold !important;
+  width: 100%;
+}
+
+.profile-btn:hover {
+  background-color: #553c9a !important;
+  color: white !important;
 }
 
 .label {
@@ -17,12 +29,12 @@
 }
 
 form {
-  width: 550px;
+  width: 450px;
   height: 50px;
   margin: auto;
   position: relative;
 }
 
 h2 {
-  margin-bottom: 5px !important;
+  margin-bottom: 20px !important;
 }
