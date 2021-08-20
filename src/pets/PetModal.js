@@ -3,20 +3,18 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import "./PetModal.css";
 
 const PetModal = (props) => {
-  const { modalOpen, toggleModal, name, gender, description, org } = props;
+  const { modalOpen, toggleModal, name, description, org } = props;
 
   return (
     <div>
       <Modal isOpen={modalOpen} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>
-          {name} | {gender}
-        </ModalHeader>
+        <ModalHeader toggle={toggleModal}>{name}</ModalHeader>
         <ModalBody>
           <span>{description}</span>
 
           <div className="org-info">
             <span>
-              <h4>Contact the shelter to meet {name}!</h4>
+              <h4>Contact the shelter!</h4>
             </span>
             <h5>{org.name}</h5>
             <h6>{org.address}</h6>

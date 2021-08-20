@@ -87,6 +87,8 @@ function PetCard({
 
           <div className="pet-details">{age}</div>
 
+          <div className="pet-details">{gender}</div>
+
           <Button block className="pet-modal-btn" onClick={handleModal}>
             Learn More!
           </Button>
@@ -96,7 +98,6 @@ function PetCard({
             toggleModal={handleModal}
             pet_id={pet_id}
             name={name}
-            gender={gender}
             description={description}
             org={org}
           />
