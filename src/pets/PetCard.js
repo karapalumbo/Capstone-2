@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import PetfinderApi from "../api/api";
+import Loading from "../Loading";
 import "./PetCard.css";
 
 import PetModal from "./PetModal";
@@ -24,6 +25,7 @@ function PetCard({
 
   const [favorited, setFavorited] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [org, setOrg] = useState(null);
 
   React.useEffect(
     function updateFavorited() {
@@ -33,14 +35,13 @@ function PetCard({
   );
 
   const getPetOrgInfo = async () => {
-    const org = await PetfinderApi.getOrganization(organizationID);
-    // console.warn(org);
-    console.warn(org);
+    const organization = await PetfinderApi.getOrganization(organizationID);
+    setOrg(organization);
   };
 
-  React.useEffect(async () => {
+  React.useEffect(function getPetOrg() {
     getPetOrgInfo();
-  });
+  }, []);
 
   const handleFavorited = async () => {
     if (favorited) {
@@ -55,6 +56,8 @@ function PetCard({
   const handleModal = () => {
     setModalOpen(!isModalOpen);
   };
+
+  if (!org) return <Loading />;
 
   return (
     <Card className="petcard">
@@ -95,6 +98,7 @@ function PetCard({
             name={name}
             gender={gender}
             description={description}
+            org={org}
           />
         </div>
       </CardBody>

@@ -1,0 +1,11 @@
+.org-info {
+  margin-top: 10px;
+  border-top: 1px solid lightgray;
+  padding: 1px;
+}
+
+h4 {
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+  text-align: center;
+}
