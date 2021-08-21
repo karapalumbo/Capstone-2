@@ -14,6 +14,7 @@ function PetList() {
 
   const petInfo = async (name) => {
     const p = await PetfinderApi.getPets(name);
+    console.warn(p);
     const names = p.map((pet) => pet.name);
     const colors = p.map((pet) => pet.color);
     const ages = p.map((pet) => pet.age);
