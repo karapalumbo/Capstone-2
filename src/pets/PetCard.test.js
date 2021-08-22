@@ -42,7 +42,6 @@ it("renders a pet being favorited", function () {
       </UserTestProvider>
     </MemoryRouter>
   );
-  //   console.log(component.container.innerHTML);
   expect(component).toMatchSnapshot();
 });
 
