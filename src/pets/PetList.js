@@ -113,6 +113,7 @@ function PetList() {
       {pets.length ? (
         <div className="petcard-container">
           {pets.map((p) => {
+            console.warn(p.organization_id);
             return (
               <PetCard
                 key={p.pet_id}

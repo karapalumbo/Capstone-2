@@ -43,6 +43,7 @@ function FavoritesList() {
                 color={p.color}
                 description={p.description}
                 photos={p.photos}
+                organizationID={p.organization_id}
               />
             );
           })}
