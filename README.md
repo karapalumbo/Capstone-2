@@ -1,57 +1,41 @@
-# Capstone 2 Proposal
+# Furriends
 
-Proposal for my second capstone project
+Furriends is a website that uses the [Petfinder API](https://www.petfinder.com/developers/v2/docs/) to get a list of pets available for adoption.
+
+[Furriends](https://furriends.surge.sh/)
+
+## Installation
+
+Use the package manager [npm](https://www.npmjs.com/) to install Furriends.
+
+```bash
+npm install
+```
+
+## Running the tests
+
+To run all tests, use the command
+
+```bash
+npm test
+```
 
 ## Tech Stack
 
-React and Node.
-
-## Project Focus
-
-Front-end UI.
+React, Node.js, express, SQL, PSQL.
 
 ## Type
 
 Website.
 
-## Goal
+## Features
 
-Filter, search or favorite animals a user is interested in adopting.
+Filter, favorite, update profile, sign up, log in and out.
 
 ## User Type
 
-All demographics. Anyone looking to adopt a pet. Ages 25-55
+All demographics. Anyone looking to adopt a pet.
 
-## Data type
+## User Flow
 
-Use the [Petfinder API](https://www.petfinder.com/developers/v2/docs/) to get access to an array of pets available for adoption. Data would also include individual info about the pet (name, breed, color, gender, age) & location of where the adoption agency is.
-
-## Approach
-
-In brief, outline your approach to creating your project (knowing that you may not
-know everything in advance and that these details might change later). Answer
-questions like the ones below, but feel free to add more information:
-a. What does your database schema look like?
-Animal ID
-breed
-sex
-size
-environment
-location
-
-            Agency ID
-            address
-            phone
-            Animal ID
-
-b. What kinds of issues might you run into with your API?
-Favoriting pets that a user can go back and veiw later. (Had an issue doing this with my last capstone project)
-c. Is there any sensitive information you need to secure?
-Username and password info
-d. What functionality will your app include?
-Search, filter, pet and adoption agency info.
-e. What will the user flow look like?
-Register or log in, see list of pets available, search by pet type, age, gender & adoption agency.  
-f. What features make your site more than a CRUD app? What are your
-stretch goals?
-Being able to use GPS to find an adoption agency near a user.
+A user will sign up or login using their existing credentials. They will be directed to a list of pets that are available for adoption. A user will be able to do the following: update their profile (first name, last name, email or password) by clicking on the 'Profile' tab, favorite a pet by clicking on the heart button, view favorited pets under the 'Favorites' tab, search pets by name, color, and age, and view a description of the pet and shelter information when clicking on 'Learn More!'.
