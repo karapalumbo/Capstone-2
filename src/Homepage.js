@@ -50,7 +50,7 @@ function Homepage() {
               </p>
               <h6>
                 <Button className="home-btn">
-                  <a href="/signup">Signup</a> to meet the others!
+                  <a href="/signup">Signup to meet the others!</a>
                 </Button>
               </h6>
             </div>

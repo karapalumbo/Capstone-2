@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import Alert from "../Alert";
 import { useHistory } from "react-router-dom";
 
 const LoginForm = ({ login }) => {
@@ -8,14 +9,17 @@ const LoginForm = ({ login }) => {
     username: "",
     password: "",
   });
+  const [formErrors, setFormErrors] = useState([]);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let res = await login(formData);
-    if (res.success) {
-      history.push("/pets");
-    } else {
-      throw new Error("Error logging in.");
+    try {
+      let res = await login(formData);
+      if (res.success) {
+        history.push("/pets");
+      }
+    } catch (error) {
+      setFormErrors(error);
     }
   }
 
@@ -52,6 +56,11 @@ const LoginForm = ({ login }) => {
           onChange={handleChange}
         />
       </FormGroup>
+
+      {formErrors.length ? (
+        <Alert color="danger" isAlertOpen={true} msg={formErrors[0]} />
+      ) : null}
+
       <Button className="profile-btn" onSubmit={handleSubmit}>
         Login
       </Button>

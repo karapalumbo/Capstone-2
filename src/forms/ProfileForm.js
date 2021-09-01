@@ -7,7 +7,9 @@ import "./ProfileForm.css";
 
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [showAlert, setShowAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [formErrors, setFormErrors] = useState([]);
 
   const [formData, setFormData] = useState({
     username: currentUser.username,
@@ -27,17 +29,28 @@ const ProfileForm = () => {
       email: formData.email,
     };
 
-    let updatedInfo = await PetfinderApi.updateProfile(
-      formData.username,
-      userInfo
-    );
+    let updatedInfo;
+
+    try {
+      updatedInfo = await PetfinderApi.updateProfile(
+        formData.username,
+        userInfo
+      );
+    } catch (errors) {
+      setFormErrors(errors);
+      setShowErrorAlert(true);
+      setShowSuccessAlert(false);
+      return;
+    }
 
     setFormData((info) => ({
       ...info,
       password: "",
     }));
     setCurrentUser(updatedInfo);
-    setShowAlert(true);
+    setFormErrors([]);
+    setShowErrorAlert(false);
+    setShowSuccessAlert(true);
   }
 
   function handleChange(e) {
@@ -46,6 +59,7 @@ const ProfileForm = () => {
       ...info,
       [name]: value,
     }));
+    setFormErrors([]);
   }
 
   return (
@@ -94,7 +108,7 @@ const ProfileForm = () => {
         </FormGroup>
         <FormGroup>
           <Label className="label" for="password">
-            Password
+            Update or enter existing password
           </Label>
           <Input
             type="password"
@@ -106,9 +120,15 @@ const ProfileForm = () => {
         </FormGroup>
 
         <Alert
+          color="danger"
+          msg="Please enter your password or enter a new password with at least 5 characters."
+          isAlertOpen={showErrorAlert}
+        />
+
+        <Alert
           color="success"
           msg="Your changes have been saved!"
-          isAlertOpen={showAlert}
+          isAlertOpen={showSuccessAlert}
         />
 
         <Button className="profile-btn" onClick={handleSubmit}>
