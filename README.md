@@ -6,7 +6,7 @@ Furriends is a website that uses the [Petfinder API](https://www.petfinder.com/d
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install Furriends.
+Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
 
 ```bash
 npm install
