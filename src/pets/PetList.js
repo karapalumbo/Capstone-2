@@ -13,12 +13,12 @@ function PetList() {
   const [petAges, setPetAges] = useState(new Set());
 
   const petInfo = async (name) => {
-    const p = await PetfinderApi.getPets(name);
-    const names = p.map((pet) => pet.name);
-    const colors = p.map((pet) => pet.color);
-    const ages = p.map((pet) => pet.age);
+    const getPetsByName = await PetfinderApi.getPets(name);
+    const names = getPetsByName.map((pet) => pet.name);
+    const colors = getPetsByName.map((pet) => pet.color);
+    const ages = getPetsByName.map((pet) => pet.age);
 
-    setPets(p);
+    setPets(getPetsByName);
     setPetNames(names);
     setPetColors(new Set(colors));
     setPetAges(new Set(ages));
@@ -30,9 +30,9 @@ function PetList() {
 
   const handleNameSelect = async (event) => {
     setSelectValue(event.target.value);
-    const isAll =
+    const isAllPets =
       event.target.value === "All Names" ? null : event.target.value;
-    const p = await PetfinderApi.getPets(isAll);
+    const p = await PetfinderApi.getPets(isAllPets);
     setPets(p);
   };
 

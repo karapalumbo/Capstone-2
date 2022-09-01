@@ -13,14 +13,14 @@ import "./App.css";
 
 export const TOKEN_ID = "token";
 
-function App() {
+const App = () => {
   const [token, setToken] = useLocalStorage(TOKEN_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [favoriteID, setFavoriteID] = useState(new Set([]));
 
   useEffect(() => {
-    async function findCurrentUser() {
+    const findCurrentUser = async () => {
       if (token) {
         let { username } = jwt.decode(token);
         PetfinderApi.token = token;
@@ -29,41 +29,41 @@ function App() {
         setFavoriteID(new Set(currentUser.favorites));
       }
       setIsLoaded(true);
-    }
+    };
     setIsLoaded(false);
     findCurrentUser();
   }, [token]);
 
-  async function signup(formData) {
-    let token = await PetfinderApi.signup(formData);
+  const signUp = async (formData) => {
+    let token = await PetfinderApi.signUp(formData);
     setToken(token);
     return { success: true };
-  }
+  };
 
-  async function login(formData) {
+  const login = async (formData) => {
     let token = await PetfinderApi.login(formData);
     setToken(token);
     return { success: true };
-  }
+  };
 
-  function logout() {
+  const logout = () => {
     setCurrentUser(null);
     setToken(null);
-  }
+  };
 
-  function hasFavorited(pet_id) {
+  const hasFavorited = (pet_id) => {
     return favoriteID.has(pet_id);
-  }
+  };
 
-  function favoritePet(pet_id) {
+  const favoritePet = (pet_id) => {
     PetfinderApi.favoriteAPet(currentUser.username, pet_id);
     setFavoriteID(new Set([...favoriteID, pet_id]));
-  }
+  };
 
-  function unfavoritePet(pet_id) {
+  const unfavoritePet = (pet_id) => {
     favoriteID.delete(pet_id);
     return PetfinderApi.unfavoriteAPet(currentUser.username, pet_id);
-  }
+  };
 
   if (!isLoaded) {
     return <Loading />;
@@ -83,12 +83,12 @@ function App() {
         >
           <NavBar logout={logout} />
           <Container>
-            <Routes signup={signup} login={login} />
+            <Routes signUp={signUp} login={login} />
           </Container>
         </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

@@ -6,14 +6,14 @@ import "./FavoritesList.css";
 import Loading from "../Loading";
 import emptyImg from "../images/empty-favorites.png";
 
-function FavoritesList() {
+const FavoritesList = () => {
   const { currentUser } = useContext(UserContext);
   const [pets, setPets] = useState(null);
 
   const petInfo = async (name) => {
-    const p = await PetfinderApi.getPets(name);
+    const getPetByName = await PetfinderApi.getPets(name);
 
-    const filterArr = p.filter((pet) => {
+    const filterArr = getPetByName.filter((pet) => {
       return currentUser.favorites.includes(pet.pet_id);
     });
     setPets(filterArr);
@@ -51,17 +51,18 @@ function FavoritesList() {
       ) : (
         <div>
           <p>
-            You currently have no favorites!{" "}
+            {/* You currently have no favorites!{" "} */}
             <a className="visit-pets" href="/pets">
               {" "}
-              Visit some furriends!
-            </a>
+              Visit some furriends
+            </a>{" "}
+            to add your favorite!
           </p>
-          <img className="empty-img" src={emptyImg} />
+          <img className="empty-img" src={emptyImg} alt="animal paw" />
         </div>
       )}
     </div>
   );
-}
+};
 
 export default FavoritesList;

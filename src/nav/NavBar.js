@@ -4,13 +4,15 @@ import { NavLink, Navbar, NavbarBrand } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 
-function NavBar({ logout }) {
+const NavBar = ({ logout }) => {
   const { currentUser } = useContext(UserContext);
   const location = useLocation();
 
   return (
     <Navbar className="nav-container" expand="md">
-      <NavbarBrand className="brand">Furriends</NavbarBrand>
+      <NavbarBrand className="brand" href="/pets">
+        Furriends
+      </NavbarBrand>
       <div className="nav-links">
         {currentUser ? (
           <>
@@ -43,12 +45,12 @@ function NavBar({ logout }) {
         ) : (
           <>
             <NavLink href="/login">Login</NavLink>
-            <NavLink href="/signup">Signup</NavLink>
+            <NavLink href="/signup">Sign Up</NavLink>
           </>
         )}
       </div>
     </Navbar>
   );
-}
+};
 
 export default NavBar;

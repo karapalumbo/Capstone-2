@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import UserContext from "../UserContext";
 import { Card, Button, CardBody } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ import "./PetCard.css";
 
 import PetModal from "./PetModal";
 
-function PetCard({
+const PetCard = ({
   pet_id,
   name,
   species,
@@ -20,16 +20,16 @@ function PetCard({
   color,
   photos,
   organizationID,
-}) {
+}) => {
   const { hasFavorited, favoritePet, unfavoritePet } = useContext(UserContext);
 
-  const [favorited, setFavorited] = useState(false);
+  const [favoritedPet, setFavoritedPet] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [org, setOrg] = useState(null);
 
-  React.useEffect(
+  useEffect(
     function updateFavorited() {
-      setFavorited(hasFavorited(pet_id));
+      setFavoritedPet(hasFavorited(pet_id));
     },
     [pet_id, hasFavorited]
   );
@@ -39,16 +39,16 @@ function PetCard({
     setOrg(organization);
   };
 
-  React.useEffect(function getPetOrg() {
+  useEffect(function getPetOrg() {
     getPetOrgInfo();
   }, []);
 
   const handleFavorited = async () => {
-    if (favorited) {
+    if (favoritedPet) {
       unfavoritePet(pet_id);
-      setFavorited(false);
+      setFavoritedPet(false);
     } else {
-      setFavorited(true);
+      setFavoritedPet(true);
       favoritePet(pet_id);
     }
   };
@@ -74,9 +74,9 @@ function PetCard({
               onClick={handleFavorited}
             >
               <FontAwesomeIcon
-                id={favorited ? "favorites" : "not-favorites"}
+                id={favoritedPet ? "favorites" : "not-favorites"}
                 size="2x"
-                icon={favorited ? solidHeart : faHeart}
+                icon={favoritedPet ? solidHeart : faHeart}
               />
             </Button>
           </span>
@@ -90,7 +90,7 @@ function PetCard({
           <div className="pet-details">{gender}</div>
 
           <Button block className="pet-modal-btn" onClick={handleModal}>
-            Learn More!
+            Adopt me!
           </Button>
 
           <PetModal
@@ -105,6 +105,6 @@ function PetCard({
       </CardBody>
     </Card>
   );
-}
+};
 
 export default PetCard;

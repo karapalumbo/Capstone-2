@@ -61,8 +61,8 @@ class PetfinderApi {
     return res.org;
   }
 
-  /** User signup */
-  static async signup(data) {
+  /** User sign up */
+  static async signUp(data) {
     let res = await this.request(`auth/register`, data, "post");
     return res.token;
   }

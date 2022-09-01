@@ -19,7 +19,7 @@ const ProfileForm = () => {
     password: "",
   });
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let userInfo = {
@@ -51,22 +51,25 @@ const ProfileForm = () => {
     setFormErrors([]);
     setShowErrorAlert(false);
     setShowSuccessAlert(true);
-  }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((info) => ({
       ...info,
       [name]: value,
     }));
     setFormErrors([]);
-  }
+  };
 
   return (
     <div className="profile-form">
       <Form>
         <h2>{formData.username}'s Profile</h2>
-        <p style={{ textAlign: "left" }}>Update your profile below.</p>
+        <p style={{ textAlign: "left" }}>
+          Update your profile information below.
+        </p>
         <FormGroup>
           <Label className="label" for="firstName">
             First Name

@@ -8,15 +8,15 @@ const PetModal = (props) => {
   return (
     <div>
       <Modal isOpen={modalOpen} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>{name}</ModalHeader>
+        <ModalHeader toggle={toggleModal}>Hi I'm {name}!</ModalHeader>
         <ModalBody>
           <span>{description}</span>
 
           <div className="org-info">
             <span>
-              <h4>Contact the shelter!</h4>
+              <h4>Shelter Information</h4>
             </span>
-            <h5>{org.name}</h5>
+            <h6>{org.name}</h6>
             <h6>{org.address}</h6>
             {org.email !== undefined && (
               <div>

@@ -11,7 +11,7 @@ const LoginForm = ({ login }) => {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let res = await login(formData);
@@ -21,15 +21,15 @@ const LoginForm = ({ login }) => {
     } catch (error) {
       setFormErrors(error);
     }
-  }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((info) => ({
       ...info,
       [name]: value,
     }));
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -46,7 +46,7 @@ const LoginForm = ({ login }) => {
         />
       </FormGroup>
       <FormGroup>
-        <Label for="=password">Password</Label>
+        <Label for="password">Password</Label>
         <Input
           type="password"
           name="password"

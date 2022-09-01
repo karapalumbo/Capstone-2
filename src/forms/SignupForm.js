@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import "./SignupForm.css";
 
-const SignupForm = ({ signup }) => {
+const SignUpForm = ({ signUp }) => {
   const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
@@ -13,27 +13,27 @@ const SignupForm = ({ signup }) => {
     email: "",
   });
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await signup(formData);
+    let res = await signUp(formData);
     if (res.success) {
       history.push("/pets");
     } else {
       throw new Error("Error signing up.");
     }
-  }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((info) => ({
       ...info,
       [name]: value,
     }));
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>Are you ready to meet your new best friend?!</h2>
+      <h2>Get ready to meet your new best friend!</h2>
       <FormGroup>
         <Label for="username">Username</Label>
         <Input
@@ -93,9 +93,9 @@ const SignupForm = ({ signup }) => {
           onChange={handleChange}
         />
       </FormGroup>
-      <Button className="signup-btn">Signup</Button>
+      <Button className="signUp-btn">Sign Up</Button>
     </Form>
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

@@ -22,7 +22,7 @@ input:focus {
   outline: none;
 }
 
-.signup-btn {
+.signUp-btn {
   background-color: #805ad5 !important;
   padding: 10px !important;
   border-radius: 5px !important;
@@ -33,7 +33,7 @@ input:focus {
   width: 100%;
 }
 
-.signup-btn:hover {
+.signUp-btn:hover {
   background-color: #553c9a !important;
   color: white !important;
 }

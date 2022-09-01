@@ -3,12 +3,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import PetList from "../pets/PetList";
 import FavoritesList from "../favorites/FavoritesList";
 import LoginForm from "../forms/LoginForm";
-import SignupForm from "../forms/SignupForm";
+import SignUpForm from "../forms/SignupForm";
 import ProfileForm from "../forms/ProfileForm";
 import PrivateRoute from "./PrivateRoute";
 import Homepage from "../Homepage";
 
-function Routes({ login, signup }) {
+const Routes = ({ login, signUp }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -16,7 +16,7 @@ function Routes({ login, signup }) {
       </Route>
 
       <Route exact path="/signup">
-        <SignupForm signup={signup} />
+        <SignUpForm signUp={signUp} />
       </Route>
 
       <Route exact path="/login">
@@ -38,6 +38,6 @@ function Routes({ login, signup }) {
       <Redirect to="/" />
     </Switch>
   );
-}
+};
 
 export default Routes;

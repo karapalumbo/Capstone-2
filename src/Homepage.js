@@ -6,7 +6,7 @@ import Loading from "./Loading";
 import { Button } from "reactstrap";
 import "./Homepage.css";
 
-function Homepage() {
+const Homepage = () => {
   const { currentUser } = useContext(UserContext);
   const [pet, setPet] = useState(null);
 
@@ -16,11 +16,11 @@ function Homepage() {
     52673922, 52673923, 52674068, 52674066, 52674065, 52674233,
   ];
 
-  function getRandom(arr) {
+  const getRandomPet = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)];
-  }
+  };
 
-  let randomId = getRandom(petIdArr);
+  let randomId = getRandomPet(petIdArr);
 
   const petInfo = async () => {
     const p = await PetfinderApi.getPet(randomId);
@@ -50,18 +50,18 @@ function Homepage() {
               </p>
               <h6>
                 <Button className="home-btn">
-                  <a href="/signup">Signup to meet the others!</a>
+                  <a href="/signup">Sign up to meet the others!</a>
                 </Button>
               </h6>
             </div>
             <div>
-              <img className="homepage-img" src={pet.photos}></img>
+              <img className="homepage-img" src={pet.photos} alt={"pet"}></img>
             </div>
           </div>
         </>
       )}
     </div>
   );
-}
+};
 
 export default Homepage;

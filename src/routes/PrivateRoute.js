@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import UserContext from "../UserContext";
 
-function PrivateRoute({ exact, path, children }) {
+const PrivateRoute = ({ exact, path, children }) => {
   const { currentUser } = useContext(UserContext);
 
   if (!currentUser) {
@@ -14,6 +14,6 @@ function PrivateRoute({ exact, path, children }) {
       {children}
     </Route>
   );
-}
+};
 
 export default PrivateRoute;
